@@ -1,12 +1,7 @@
 import type {
-  getRequestConfig as getRequestConfig_type,
-  getFormatter as getFormatter_type,
-  getNow as getNow_type,
-  getTimeZone as getTimeZone_type,
-  getMessages as getMessages_type,
-  getLocale as getLocale_type,
-  unstable_setRequestLocale as unstable_setRequestLocale_type
-} from '../react-server';
+  getLocaleAlias as getLocaleAlias_type,
+  unstable_setRequestLocaleAlias as unstable_setRequestLocaleAlias_type,
+} from "../react-server";
 
 /**
  * Allows to import `next-intl/server` in non-RSC environments.
@@ -22,29 +17,10 @@ function notSupported(message: string) {
   };
 }
 
-export function getRequestConfig(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ...args: Parameters<typeof getRequestConfig_type>
-): ReturnType<typeof getRequestConfig_type> {
-  return notSupported('getRequestConfig');
-}
-export const getFormatter = notSupported(
-  'getFormatter'
-) as typeof getFormatter_type;
-export const getNow = notSupported('getNow') as typeof getNow_type;
-export const getTimeZone = notSupported(
-  'getTimeZone'
-) as typeof getTimeZone_type;
-export const getMessages = notSupported(
-  'getMessages'
-) as typeof getMessages_type;
-export const getLocale = notSupported('getLocale') as typeof getLocale_type;
-
-// The type of `getTranslations` is not assigned here because it
-// causes a type error. The types use the `react-server` entry
-// anyway, therefore this is irrelevant.
-export const getTranslations = notSupported('getTranslations');
+export const getLocale = notSupported(
+  "getLocale"
+) as typeof getLocaleAlias_type;
 
 export const unstable_setRequestLocale = notSupported(
-  'unstable_setRequestLocale'
-) as typeof unstable_setRequestLocale_type;
+  "unstable_setRequestLocale"
+) as typeof unstable_setRequestLocaleAlias_type;
